@@ -4,40 +4,40 @@
 	align-items : center;
     list-style: none;
 }
-
-@mixin flexCenterTwo($size: 30px){
+// @mixin flexCenterTwo($size){
+@mixin flexCenterTwo($size : 30px){
 	display: flex;
 	justify-content : center;
 	align-items : center;
     list-style: none;
-    li{
+    li {
         margin-right: $size;
     }
+    // content 쓰고 밑에서 중괄호 작성하고 속성 넣어주면 들어감
     @content
 }
 
 .one{
-	@include flexCenterTwo(10px);
+	@include flexCenterTwo(10px); // 정의한 center-xy mixin을 사용하여 코드 한줄이면 끝!
     background-color: aqua;
-    //li{
-    //    margin-right: 10px;
-    //}
+    // li {
+    //     margin-right: 10px;
+    // }
 }
 
 .two{
-	@include flexCenterTwo(20px); 
+    @include flexCenterTwo(20px); 
     background-color: chocolate;
-    //li{
-    //    margin-right: 20px;
-    //}
+    // li {
+    //     margin-right: 20px;
+    // }
 }
 
 .three{
-	@include flexCenterTwo{
-        color:white;
+    // 아무것도 지정되어 있지 않으면 30px로 넣어주기로 위에서 적어줌
+    // @include flexCenterTwo; 
+    @include flexCenterTwo{
+        color: white
     }; 
     background-color: chocolate;
-    //li{
-    //    margin-right: 20px;
-    //}
 }
